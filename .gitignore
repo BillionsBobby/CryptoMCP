@@ -192,4 +192,18 @@ test_results/
 coverage/
 
 # Docker
-.dockerignore 
+.dockerignore
+
+# Project-specific files to ignore
+private_keys.json
+*_keys.json
+production_readiness_report.json
+*_report.json
+
+# Development artifacts that shouldn't be in repo
+*_STATUS.md
+*_GUIDE.md
+
+# Additional sensitive files
+secret*.json
+api_keys.json 

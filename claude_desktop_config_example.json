@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "cryptomcp": {
+      "command": "python",
+      "args": [
+        "-m",
+        "src.mcp_server_simple"
+      ],
+      "env": {
+        "COINREMITTER_TRC20_API_KEY": "<YOUR_TRC20_API_KEY>",
+        "COINREMITTER_ERC20_API_KEY": "<YOUR_ERC20_API_KEY>", 
+        "DIA_ORACLE_API_URL": "https://api.diadata.org",
+        "HMAC_SECRET": "<YOUR_HMAC_SECRET>",
+        "JWT_SECRET": "<YOUR_JWT_SECRET>",
+        "DEBUG": "false"
+      }
+    }
+  }
+} 

@@ -1,4 +1,4 @@
-# FinAgent MCP Server
+# CryptoMCP Server
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![Model Context Protocol](https://img.shields.io/badge/MCP-Compatible-green.svg)](https://modelcontextprotocol.io/)
@@ -11,7 +11,7 @@
 
 ## 🌟 Features
 
-**FinAgent** is a production-grade MCP server built on the official [Model Context Protocol](https://modelcontextprotocol.io/) that provides AI agents with comprehensive cryptocurrency payment, market data, and blockchain network operations capabilities.
+**CryptoMCP** is a production-grade MCP server built on the official [Model Context Protocol](https://modelcontextprotocol.io/) that provides AI agents with comprehensive cryptocurrency payment, market data, and blockchain network operations capabilities.
 
 ### 🔧 MCP Tools
 - **Payment Creation** - Generate USDT payment invoices based on USD amounts
@@ -33,7 +33,7 @@
 ## 🏗️ Architecture
 
 ```
-FinAgent MCP Server
+CryptoMCP Server
 ├── src/
 │   ├── mcp_server.py          # Full MCP server (with external APIs)
 │   ├── mcp_server_simple.py   # Simplified MCP server (mock data)
@@ -69,8 +69,8 @@ FinAgent MCP Server
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-org/FinAgent.git
-cd FinAgent
+git clone https://github.com/BillionsBobby/CryptoMCP.git
+cd CryptoMCP
 
 # Install dependencies (recommended: uv)
 pip install -e .
@@ -113,10 +113,10 @@ Add configuration to Claude Desktop config file:
 ```json
 {
   "mcpServers": {
-    "finagent": {
+    "cryptomcp": {
       "command": "python3",
       "args": ["-m", "src.mcp_server_simple"],
-      "cwd": "/path/to/FinAgent",
+      "cwd": "/path/to/CryptoMCP",
       "env": {}
     }
   }
@@ -131,8 +131,8 @@ Add configuration to Claude Desktop config file:
 docker-compose up --build
 
 # Or build manually
-docker build -t finagent-mcp .
-docker run -p 8000:8000 finagent-mcp
+docker build -t cryptomcp .
+docker run -p 8000:8000 cryptomcp
 ```
 
 ### Cloud Deployment
@@ -173,7 +173,7 @@ server_params = StdioServerParameters(
     args=["-m", "src.mcp_server_simple"]
 )
 
-async def use_finagent():
+async def use_cryptomcp():
     async with stdio_client(server_params) as (read, write):
         async with ClientSession(read, write) as session:
             await session.initialize()
@@ -288,9 +288,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 中文版本
 
-🚀 **FinAgent模型上下文协议服务器** - 为AI智能体提供加密货币支付和市场数据服务
+🚀 **CryptoMCP模型上下文协议服务器** - 为AI智能体提供加密货币支付和市场数据服务
 
-**FinAgent** 是基于官方 [Model Context Protocol](https://modelcontextprotocol.io/) 构建的生产级MCP服务器，为AI智能体提供USDT支付、市场数据查询和区块链网络操作功能。
+**CryptoMCP** 是基于官方 [Model Context Protocol](https://modelcontextprotocol.io/) 构建的生产级MCP服务器，为AI智能体提供USDT支付、市场数据查询和区块链网络操作功能。
 
 ### ✨ 核心功能
 
@@ -316,8 +316,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 #### 安装依赖
 ```bash
 # 克隆项目
-git clone https://github.com/your-org/FinAgent.git
-cd FinAgent
+git clone https://github.com/BillionsBobby/CryptoMCP.git
+cd CryptoMCP
 
 # 安装依赖
 pip install -e .
@@ -336,10 +336,10 @@ python3 -m src.mcp_server
 ```json
 {
   "mcpServers": {
-    "finagent": {
+    "cryptomcp": {
       "command": "python3",
       "args": ["-m", "src.mcp_server_simple"],
-      "cwd": "/path/to/FinAgent"
+      "cwd": "/path/to/CryptoMCP"
     }
   }
 }
