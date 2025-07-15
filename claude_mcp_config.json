@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "finagent-simple": {
+      "command": "python3",
+      "args": ["-m", "src.mcp_server_simple"],
+      "cwd": ".",
+      "env": {}
+    },
+    "finagent-full": {
+      "command": "python3",
+      "args": ["-m", "src.mcp_server"],
+      "cwd": ".",
+      "env": {
+        "COINREMITTER_TRC20_API_KEY": "your_trc20_api_key",
+        "COINREMITTER_ERC20_API_KEY": "your_erc20_api_key"
+      }
+    }
+  }
+} 

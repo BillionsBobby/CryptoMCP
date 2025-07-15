@@ -1,0 +1,102 @@
+version: '3.8'
+
+services:
+  mcp-payment:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    container_name: mcp-crypto-payment
+    ports:
+      - "8000:8000"
+      - "8001:8001"
+    environment:
+      - APP_NAME=MCP Crypto Payment
+      - APP_VERSION=0.1.0
+      - DEBUG=false
+      - HOST=0.0.0.0
+      - PORT=8000
+      # 从环境文件加载敏感配置
+      - COINREMITTER_TRC20_API_KEY=${COINREMITTER_TRC20_API_KEY}
+      - COINREMITTER_TRC20_PASSWORD=${COINREMITTER_TRC20_PASSWORD}
+      - COINREMITTER_TRC20_WEBHOOK_SECRET=${COINREMITTER_TRC20_WEBHOOK_SECRET}
+      - COINREMITTER_ERC20_API_KEY=${COINREMITTER_ERC20_API_KEY}
+      - COINREMITTER_ERC20_PASSWORD=${COINREMITTER_ERC20_PASSWORD}
+      - COINREMITTER_ERC20_WEBHOOK_SECRET=${COINREMITTER_ERC20_WEBHOOK_SECRET}
+      - DIA_ORACLE_BASE_URL=https://api.diadata.org/v1/assetQuotation/Ethereum/0xdAC17F958D2ee523a2206206994597C13D831ec7
+      - AGENT_NAME=mcp_payment_agent
+      - AGENT_SEED=${AGENT_SEED:-}
+      - AGENT_PORT=8001
+      - DEFAULT_NETWORK=trc20
+      - MIN_PAYMENT_AMOUNT=0.1
+      - MAX_PAYMENT_AMOUNT=10000.0
+      - PAYMENT_TIMEOUT=3600
+      - HMAC_SECRET=${HMAC_SECRET}
+      - JWT_SECRET=${JWT_SECRET}
+    volumes:
+      - ./logs:/app/logs
+      - ./data:/app/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import sys; sys.exit(0)"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - mcp-network
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # Redis (可选，用于缓存和会话存储)
+  redis:
+    image: redis:7-alpine
+    container_name: mcp-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+    command: redis-server --appendonly yes
+    networks:
+      - mcp-network
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # Nginx (可选，用于反向代理)
+  nginx:
+    image: nginx:alpine
+    container_name: mcp-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./ssl:/etc/nginx/ssl:ro
+    depends_on:
+      - mcp-payment
+    restart: unless-stopped
+    networks:
+      - mcp-network
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  redis_data:
+    driver: local
+
+networks:
+  mcp-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16 
