@@ -4,6 +4,7 @@
 [![Model Context Protocol](https://img.shields.io/badge/MCP-Compatible-green.svg)](https://modelcontextprotocol.io/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Docker](https://img.shields.io/badge/Docker-Supported-blue.svg)](https://www.docker.com/)
+[![smithery badge](https://smithery.ai/badge/@BillionsBobby/cryptopaymcp)](https://smithery.ai/server/@BillionsBobby/cryptopaymcp)
 
 🚀 **Production-ready Model Context Protocol (MCP) Server for AI Agent cryptocurrency payments and market data services**
 
@@ -66,6 +67,16 @@ CryptoMCP Server
 - (Optional) Docker for containerized deployment
 
 ### 1. Installation
+
+### Installing via Smithery
+
+To install cryptopaymcp for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@BillionsBobby/cryptopaymcp):
+
+```bash
+npx -y @smithery/cli install @BillionsBobby/cryptopaymcp --client claude
+```
+
+### Installing Manually
 
 ```bash
 # Clone the repository
