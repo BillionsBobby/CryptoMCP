@@ -6,121 +6,121 @@
     "success_rate": "89.5%"
   },
   "production_ready": false,
-  "timestamp": "2025-07-15T14:32:33.724275",
+  "timestamp": "2025-07-15T15:07:01.202755",
   "detailed_results": [
     {
       "test_name": "核心模块导入",
       "passed": true,
       "details": "所有关键模块正常导入",
-      "timestamp": "2025-07-15T14:32:33.571866"
+      "timestamp": "2025-07-15T15:07:00.982250"
     },
     {
       "test_name": "配置安全检查",
       "passed": false,
       "details": "发现 4 个安全问题: 缺少环境变量: COINREMITTER_TRC20_API_KEY, 缺少环境变量: COINREMITTER_ERC20_API_KEY, 缺少环境变量: HMAC_SECRET, 缺少环境变量: JWT_SECRET",
-      "timestamp": "2025-07-15T14:32:33.571982"
+      "timestamp": "2025-07-15T15:07:00.982361"
     },
     {
       "test_name": "地址验证",
       "passed": true,
       "details": "地址格式验证正常",
-      "timestamp": "2025-07-15T14:32:33.572024"
+      "timestamp": "2025-07-15T15:07:00.982392"
     },
     {
       "test_name": "金额验证",
       "passed": true,
       "details": "金额范围验证正常",
-      "timestamp": "2025-07-15T14:32:33.572043"
+      "timestamp": "2025-07-15T15:07:00.982411"
     },
     {
       "test_name": "输入清理",
       "passed": true,
       "details": "XSS防护正常",
-      "timestamp": "2025-07-15T14:32:33.572368"
+      "timestamp": "2025-07-15T15:07:00.982659"
     },
     {
       "test_name": "缓存系统",
       "passed": true,
       "details": "缓存读写正常",
-      "timestamp": "2025-07-15T14:32:33.572412"
+      "timestamp": "2025-07-15T15:07:00.982701"
     },
     {
       "test_name": "HTTP连接池",
       "passed": true,
       "details": "HTTP客户端管理正常",
-      "timestamp": "2025-07-15T14:32:33.590876"
+      "timestamp": "2025-07-15T15:07:01.003001"
     },
     {
       "test_name": "性能监控",
       "passed": true,
-      "details": "监控正常，统计: {'count': 1, 'avg': 0.10088682174682617, 'min': 0.10088682174682617, 'max': 0.10088682174682617, 'recent_avg': 0.10088682174682617}",
-      "timestamp": "2025-07-15T14:32:33.691915"
+      "details": "监控正常，统计: {'count': 1, 'avg': 0.10115218162536621, 'min': 0.10115218162536621, 'max': 0.10115218162536621, 'recent_avg': 0.10115218162536621}",
+      "timestamp": "2025-07-15T15:07:01.104310"
     },
     {
       "test_name": "内存监控",
       "passed": true,
-      "details": "内存统计正常: 系统65.1%, 进程0.4%",
-      "timestamp": "2025-07-15T14:32:33.692191"
+      "details": "内存统计正常: 系统66.4%, 进程0.4%",
+      "timestamp": "2025-07-15T15:07:01.104588"
     },
     {
       "test_name": "垃圾回收",
       "passed": true,
-      "details": "回收前: 72111 对象, 回收后: 71904 对象",
-      "timestamp": "2025-07-15T14:32:33.707843"
+      "details": "回收前: 72193 对象, 回收后: 71909 对象",
+      "timestamp": "2025-07-15T15:07:01.172430"
     },
     {
       "test_name": "资源清理",
       "passed": true,
       "details": "清理处理器正常执行",
-      "timestamp": "2025-07-15T14:32:33.723810"
+      "timestamp": "2025-07-15T15:07:01.202306"
     },
     {
       "test_name": "MCP服务器配置",
       "passed": true,
       "details": "服务器: FinAgent-Simple",
-      "timestamp": "2025-07-15T14:32:33.723957"
+      "timestamp": "2025-07-15T15:07:01.202433"
     },
     {
       "test_name": "MCP协议",
       "passed": true,
       "details": "MCP模块加载正常",
-      "timestamp": "2025-07-15T14:32:33.723994"
+      "timestamp": "2025-07-15T15:07:01.202458"
     },
     {
       "test_name": "异常处理",
       "passed": true,
       "details": "自定义异常正常",
-      "timestamp": "2025-07-15T14:32:33.724028"
+      "timestamp": "2025-07-15T15:07:01.202484"
     },
     {
       "test_name": "数据枚举",
       "passed": true,
       "details": "网络类型枚举正常",
-      "timestamp": "2025-07-15T14:32:33.724055"
+      "timestamp": "2025-07-15T15:07:01.202504"
     },
     {
       "test_name": "数据验证",
       "passed": true,
       "details": "Pydantic验证正常",
-      "timestamp": "2025-07-15T14:32:33.724135"
+      "timestamp": "2025-07-15T15:07:01.202601"
     },
     {
       "test_name": "生产环境配置",
       "passed": false,
       "details": "配置问题: HMAC密钥长度不足, JWT密钥长度不足",
-      "timestamp": "2025-07-15T14:32:33.724170"
+      "timestamp": "2025-07-15T15:07:01.202633"
     },
     {
       "test_name": "Docker兼容性",
       "passed": true,
       "details": "Docker配置文件完整",
-      "timestamp": "2025-07-15T14:32:33.724230"
+      "timestamp": "2025-07-15T15:07:01.202705"
     },
     {
       "test_name": "云部署配置",
       "passed": true,
       "details": "云部署配置完整",
-      "timestamp": "2025-07-15T14:32:33.724256"
+      "timestamp": "2025-07-15T15:07:01.202733"
     }
   ]
 }
